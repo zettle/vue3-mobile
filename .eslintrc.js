@@ -132,52 +132,58 @@ module.exports = {
         'vue/no-multiple-objects-in-class': ['error'],
         // 禁止自定义组件起名和vue内置组件一样
         'vue/no-reserved-component-names': ['error', {
-            // "disallowVueBuiltInComponents": true, // 这是vue2的内置组件
-            "disallowVue3BuiltInComponents": true // 这是vue3的内置组件
+            // 'disallowVueBuiltInComponents': true, // 这是vue2的内置组件
+            'disallowVue3BuiltInComponents': true // 这是vue3的内置组件
         }],
         // 禁止html中style有写死的
         'vue/no-static-inline-styles': ['error', { allowBinding: false }],
-        // a标签有target="_blank"就要加上 rel="noopener noreferrer"
-        "vue/no-template-target-blank": ["error"
+        // a标签有target='_blank'就要加上 rel='noopener noreferrer'
+        'vue/no-template-target-blank': ['error'
             // {
-            //     "allowReferrer": false// 默认false 设置true只要求加noopener，设置false要求加noopener noopener 2个
-            //     "enforceDynamicLinks": "always" // 默认always 设置动态 :href也准守这个规矩
+            //     'allowReferrer': false// 默认false 设置true只要求加noopener，设置false要求加noopener noopener 2个
+            //     'enforceDynamicLinks': 'always' // 默认always 设置动态 :href也准守这个规矩
             // }
         ],
         // 未注册的组件不可以用
-        // "vue/no-unregistered-components": ['error', {
-        //     "ignorePatterns": ['^m-button$', '^router-'] // 如果是全局组件需要一个个在这里面写，每个元素是正则
+        // 'vue/no-unregistered-components': ['error', {
+        //     'ignorePatterns': ['^m-button$', '^router-'] // 如果是全局组件需要一个个在这里面写，每个元素是正则
         // }],
         // 禁止声明但未使用的声明
-        "vue/no-unused-properties": ["error", {
-            "groups": ["props", 'data', 'computed', 'methods', 'setup']
+        'vue/no-unused-properties': ['error', {
+            'groups': ['props', 'data', 'computed', 'methods', 'setup']
         }],
         // 禁止写死的{{}}
-        "vue/no-useless-mustaches": ["error",
+        'vue/no-useless-mustaches': ['error',
             // {
-            //     "ignoreIncludesComment": false, // 默认false 忽略注释
-            //     "ignoreStringEscape": false // 默认false 忽略注释
+            //     'ignoreIncludesComment': false, // 默认false 忽略注释
+            //     'ignoreStringEscape': false // 默认false 忽略注释
             // }
         ],
-        // 如果 :foo="'bar' 这种就要用写死的方式 foo="bar"
-        "vue/no-useless-v-bind": ["error",
+        // 如果 :foo=''bar' 这种就要用写死的方式 foo='bar'
+        'vue/no-useless-v-bind': ['error',
             // {
-            //     "ignoreIncludesComment": false, // 默认false
-            //     "ignoreStringEscape": false // 默认false
+            //     'ignoreIncludesComment': false, // 默认false
+            //     'ignoreStringEscape': false // 默认false
             // }
         ],
         // template/script/style等之间要有一行
-        "vue/padding-line-between-blocks": ["error", "always"],
+        'vue/padding-line-between-blocks': ['error', 'always'],
         // template里面的 {{xx}} 中 双括号之间不要有空格
-        "vue/mustache-interpolation-spacing": ["error", "never"],
+        'vue/mustache-interpolation-spacing': ['error', 'never'],
         // template里面 `${xxx}` 中的 括号之间不要有空格
-        "vue/template-curly-spacing": ["error", "never"],
+        'vue/template-curly-spacing': ['error', 'never'],
         // template的space-unary-ops，具体看 https://cloud.tencent.com/developer/section/1135838
-        "vue/space-infix-ops": ["error"],
+        'vue/space-infix-ops': ['error'],
         // 用模板字符串代替传统的字符串拼接
-        "prefer-template": ["error"],
+        'prefer-template': ['error'],
          // template里面的 prefer-template
-        "vue/prefer-template": ["error"],
+        'vue/prefer-template': ['error'],
+        // 一行最多2个属性
+        'vue/max-attributes-per-line': ['error', {
+            singleline: 2
+        }],
+        // html内容要换行
+        'vue/singleline-html-element-content-newline': ['off'],
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
     }

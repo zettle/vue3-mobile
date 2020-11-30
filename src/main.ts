@@ -18,9 +18,8 @@ import './assets/font/iconfont.css';
     const obody = document.querySelector('body');
     const maxWidth = 800; // 最大宽度
     const maxFontSize = 80; // font-size最大字体
-
     let timer = 0;
-    console.log(document.querySelector('body'));
+
     if (obody) {
         obody.style.maxWidth = `${maxWidth}px`;
     }

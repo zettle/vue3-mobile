@@ -16,7 +16,8 @@ export default defineComponent({
         const transitionName = ref('slide-right');
         const route = useRoute();
         const router = useRouter();
-        watch(route, () => {
+
+        watch(() => route.path, () => {
             const isForward = router.isForward;
             // 第一次打开页面 goTO是undefined，如果阻止的话，可以让第一次打开不会出现动画
             if (isForward === undefined) {

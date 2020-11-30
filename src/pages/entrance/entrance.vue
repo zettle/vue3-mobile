@@ -1,16 +1,11 @@
 <template>
-    <div>
-        <router-view
-            v-slot="{ Component }"
-            class="entrance-page">
+    <div class="sjdkfj">
+        <router-view v-slot="{ Component }" class="entrance-page">
             <transition :name="transitionName">
                 <component :is="Component"></component>
             </transition>
         </router-view>
-        <m-footer-nav
-            v-model="activeIndex"
-            @click="footNavHandle">
-        </m-footer-nav>
+        <m-footer-nav v-model="activeIndex" @click="footNavHandle"></m-footer-nav>
     </div>
 </template>
 
@@ -31,10 +26,10 @@ export default defineComponent({
         const footNavHandle = (tapIndex: number) => {
             if (tapIndex === 0) {
                 transitionName.value = 'slide-left'; // 后退效果
-                router.push('/entrance/home');
+                router.$push('/entrance/home');
             } else {
                 transitionName.value = 'slide-right'; // 前进效果
-                router.push('/entrance/mine');
+                router.$push('/entrance/mine');
             }
         };
 

@@ -1,5 +1,5 @@
 {
-    "name": "vue3-project",
+    "name": "vue3-mobile",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -7,14 +7,13 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "jslint": "vue-cli-service lint",
-        "inspect": "vue-cli-service inspect --mode production >> inspect.js",
         "csslint": "stylelint ./src/**/*.{html,vue,css,sass,scss} --fix",
+        "inspect": "vue-cli-service inspect --mode production >> inspect.js",
         "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
         "gulpsprite": "gulp sprite",
         "gulpfont": "gulp font"
     },
     "dependencies": {
-        "axios": "^0.21.0",
         "core-js": "^3.6.5",
         "vue": "^3.0.0",
         "vue-router": "^4.0.0-0",
@@ -33,28 +32,23 @@
         "@vue/eslint-config-standard": "^5.1.2",
         "@vue/eslint-config-typescript": "^5.0.2",
         "eslint": "^6.7.2",
-        "eslint-config-jr-vue-standard": "^1.0.7",
         "eslint-plugin-import": "^2.20.2",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.0",
-        "eslint-plugin-vue": "^7.1.0",
-        "gulp": "^4.0.2",
-        "gulp.spritesmith": "^6.11.0",
+        "eslint-plugin-vue": "^7.0.0-0",
         "nodemon": "^2.0.6",
         "postcss-pxtorem": "^5.1.1",
         "sass": "^1.26.5",
         "sass-loader": "^8.0.2",
         "sass-resources-loader": "^2.1.1",
-        "stylelint": "^13.7.2",
+        "stylelint": "^13.8.0",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-standard": "^20.0.0",
         "stylelint-order": "^4.1.0",
         "stylelint-scss": "^3.18.0",
         "stylelint-webpack-plugin": "^2.1.1",
-        "svgtofont": "^3.4.0",
         "typescript": "~3.9.3",
-        "vue-loader-v16": "^16.0.0-beta.5.4",
         "webpackbar": "^5.0.0-3"
     }
 }

@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <div class="m-layout">
         <m-header></m-header>
+        <div class="container">
+            <slot></slot>
+        </div>
     </div>
 </template>
 

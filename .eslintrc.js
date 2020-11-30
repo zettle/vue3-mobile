@@ -14,7 +14,7 @@ module.exports = {
     },
     rules: {
         // 普通.js 普通.ts 的缩进
-        'indent': ['error', 4],
+        indent: ['error', 4],
         // vue-template的缩进
         'vue/html-indent': ['error', 4, {
             // 下面已经是默认值
@@ -26,23 +26,23 @@ module.exports = {
         }],
         // vue-script缩进的方式
         'vue/script-indent': ['error', 4, {
-            'baseIndent': 0, // 首层缩进
-            'switchCase': 1, // switch的缩进
-            'ignores': []
+            baseIndent: 0, // 首层缩进
+            switchCase: 1, // switch的缩进
+            ignores: []
         }],
-         // 语句强制分号结尾
-        'semi': ['error', 'always'],
+        // 语句强制分号结尾
+        semi: ['error', 'always'],
         // 检查html标签自闭合还是双闭合
         'vue/html-self-closing': [
             'error',
             {
-                'html': {
+                html: {
                     // 常见的自闭合html标签，要自闭合，比如 img input hr br
-                    'void': 'always',
+                    void: 'always',
                     // 普通html标签，除了上面的 img input等外的普通html标签，要双闭合
-                    'normal': 'never',
+                    normal: 'never',
                     // vue组件的，用双闭合
-                    'component': 'never'
+                    component: 'never'
                 }
                 // 也可以写具体的标签名单独控制， always-自闭合  never-双闭合 any-不强制
                 // svg: 'never',
@@ -51,12 +51,12 @@ module.exports = {
         ],
         // 控制html结尾`>`的缩进
         'vue/html-closing-bracket-newline': ['error', {
-            'singleline': 'never',
-            'multiline': 'never'
+            singleline: 'never',
+            multiline: 'never'
         }],
         // doc-template-script-style的顺序
         'vue/component-tags-order': ['error', {
-            'order': ['doc', 'template', 'script', 'style']
+            order: ['doc', 'template', 'script', 'style']
         }],
         // @click方法是否加() never不加
         'vue/v-on-function-call': ['error', 'never'],
@@ -76,51 +76,51 @@ module.exports = {
             //     'EVENTS',           // 比如  @click='functionCall'', 'v-on='event'
             //     'CONTENT'           // 比如  'v-text', 'v-html'
             // ],
-            'alphabetical': true
+            alphabetical: true
         }],
         // template里面组件名称书写，中横线写法
         'vue/component-name-in-template-casing': ['error', 'kebab-case', {
-            'registeredComponentsOnly': false, // 设置为fasle，这样子那些在全局组件注册的，也会按照这套规范
-            'ignores': []
+            registeredComponentsOnly: false, // 设置为fasle，这样子那些在全局组件注册的，也会按照这套规范
+            ignores: []
         }],
         // 控制结尾要不要换行
         'vue/block-tag-newline': ['error', {
-            'singleline': 'always', // 一行的也需要换行比如 <script>export default {};</script>
-            'multiline': 'always',
-            'maxEmptyLines': 0,
-            'blocks': {
-                'template': {
-                    'singleline': 'always',
-                    'multiline': 'always',
-                    'maxEmptyLines': 0,
+            singleline: 'always', // 一行的也需要换行比如 <script>export default {};</script>
+            multiline: 'always',
+            maxEmptyLines: 0,
+            blocks: {
+                template: {
+                    singleline: 'always',
+                    multiline: 'always',
+                    maxEmptyLines: 0
                 },
-                'script': {
-                    'singleline': 'always',
-                    'multiline': 'always',
-                    'maxEmptyLines': 0,
+                script: {
+                    singleline: 'always',
+                    multiline: 'always',
+                    maxEmptyLines: 0
                 },
                 'my-block': {
-                    'singleline': 'always',
-                    'multiline': 'always',
-                    'maxEmptyLines': 0,
+                    singleline: 'always',
+                    multiline: 'always',
+                    maxEmptyLines: 0
                 }
             }
         }],
         // html中注释 注释内容要不要另起一行
         'vue/html-comment-content-newline': ['error', {
-            'singleline': 'ignore',
-            'multiline': 'always',
+            singleline: 'ignore',
+            multiline: 'always'
         }, {
-            'exceptions': []
+            exceptions: []
         }],
         // html中注释中间有空格
-        'vue/html-comment-content-spacing': ['error', 'always', { 'exceptions': []}],
+        'vue/html-comment-content-spacing': ['error', 'always', { exceptions: [] }],
         // html中注释缩进
         'vue/html-comment-indent': ['error', 4],
         // 组件的name值和文件名保持一致
         'vue/match-component-file-name': ['error', {
-            'extensions': ['jsx', 'tsx', 'vue', 'js', 'ts'],
-            'shouldMatchCase': false
+            extensions: ['jsx', 'tsx', 'vue', 'js', 'ts'],
+            shouldMatchCase: false
         }],
         // boolean类型的prop不要设置默认值
         'vue/no-boolean-default': ['error', 'no-default'],
@@ -133,7 +133,7 @@ module.exports = {
         // 禁止自定义组件起名和vue内置组件一样
         'vue/no-reserved-component-names': ['error', {
             // 'disallowVueBuiltInComponents': true, // 这是vue2的内置组件
-            'disallowVue3BuiltInComponents': true // 这是vue3的内置组件
+            disallowVue3BuiltInComponents: true // 这是vue3的内置组件
         }],
         // 禁止html中style有写死的
         'vue/no-static-inline-styles': ['error', { allowBinding: false }],
@@ -150,17 +150,17 @@ module.exports = {
         // }],
         // 禁止声明但未使用的声明
         'vue/no-unused-properties': ['error', {
-            'groups': ['props', 'data', 'computed', 'methods', 'setup']
+            groups: ['props', 'data', 'computed', 'methods', 'setup']
         }],
         // 禁止写死的{{}}
-        'vue/no-useless-mustaches': ['error',
+        'vue/no-useless-mustaches': ['error'
             // {
             //     'ignoreIncludesComment': false, // 默认false 忽略注释
             //     'ignoreStringEscape': false // 默认false 忽略注释
             // }
         ],
         // 如果 :foo=''bar' 这种就要用写死的方式 foo='bar'
-        'vue/no-useless-v-bind': ['error',
+        'vue/no-useless-v-bind': ['error'
             // {
             //     'ignoreIncludesComment': false, // 默认false
             //     'ignoreStringEscape': false // 默认false
@@ -176,7 +176,7 @@ module.exports = {
         'vue/space-infix-ops': ['error'],
         // 用模板字符串代替传统的字符串拼接
         'prefer-template': ['error'],
-         // template里面的 prefer-template
+        // template里面的 prefer-template
         'vue/prefer-template': ['error'],
         // 一行最多2个属性
         'vue/max-attributes-per-line': ['error', {

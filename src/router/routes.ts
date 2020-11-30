@@ -13,7 +13,7 @@ const routes: RouteRecordRaw[] = [
             {
                 path: 'home',
                 component: () => import(/* webpackChunkName: 'entrance-home' */'../pages/entrance/home.vue'),
-                meta: { title: '员工金融' }
+                meta: { title: '首页' }
             },
             {
                 path: 'mine',

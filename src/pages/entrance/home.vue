@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <m-layout>
         <h1>颜色</h1>
         <m-button @click="goTestPage">主要按钮</m-button>
         <m-button type="warn">成功按钮</m-button>
@@ -23,7 +23,7 @@
         <m-button disabled type="warn">成功按钮-disabled</m-button>
         <m-button disabled type="gray">默认按钮-disabled</m-button>
         <m-button disabled type="green">警告按钮-disabled</m-button>
-    </div>
+    </m-layout>
 </template>
 
 <script lang="ts">

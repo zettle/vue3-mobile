@@ -81,6 +81,6 @@ gulp.task('font', function (done) {
     }).then(() => {
         copySvg();
         console.log('done!');
-    }); ;
+    });
     done();
 });

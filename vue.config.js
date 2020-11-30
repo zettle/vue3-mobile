@@ -9,7 +9,7 @@ function resolve (dir) {
     return path.join(__dirname, dir); // 原来的cli2是在build里面，这里就不需要回退了
 }
 const vueConfig = {
-    lintOnSave: true, // 使用vscode来处理，不用webpack处理，节省时间
+    lintOnSave: false, // 使用vscode来处理，不用webpack处理，节省时间
     publicPath: './', // 相对路径
     productionSourceMap: false, // 不生成map文件
     devServer: {
@@ -63,7 +63,7 @@ const vueConfig = {
         config.plugins.push(new StyleLintPlugin({
             context: 'src',
             configFile: resolve('./stylelint.config.js'),
-            files: '**/*.{vue,htm,html,css,sss,less,scss}',
+            files: '**/*.{vue,htm,html,css,less,sass,scss}',
             fix: true,
             cache: true
         }));

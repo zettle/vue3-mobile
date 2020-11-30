@@ -1,0 +1,34 @@
+/**
+ * 各种z-index值，项目的所有z-index都放在这里控制
+ */
+$appHeaderZindex: 2; // 顶部导航
+$dialogZindex: 20; // 对话框
+$sideBarZindex: 20; // 侧边栏
+$modalZindex: 20; // 模拟框modal
+$actionsheetZindex: 20; // actionSheet
+$areaPickerZindex: 20; // 省市区选择器
+$toastZindex: 20; // toast
+$msmLayerIndex: 20; // 发送短信验证码
+$keyboardIndex: 20; // 数字键盘
+$loadingZindex: 30; //loading
+$imgPreviewZindex: 20; // 图片预览
+
+/**
+  * 间隙和大小等配置
+  */
+$appHeaderHeight: 80px; // header的高度，也是内容的padding-top
+$appFooterHeight: 100px; // 底部tab菜单的高度，也是内容padding-bottom
+
+/**
+  * 颜色相关
+  */
+$white: #fff;
+$black: #000;
+$formRowBorderColor: #e5e5e5; // 表单类边框+协议列表边框颜色
+$whiteActive: rgba(0, 0, 0, 0.2); // 白色背景被激活时候的颜色
+$meiBlue: #3da5fe; // 美的蓝
+$pageBgColor: #f4f6f8; // 页面整体背景色-浅灰色
+$assertive: #ea5a49; // 红色
+$graytive: #858585; // 灰色按钮
+$green: #56e849; // 绿色
+$c-e5e8ea: #e5e8ea; // 浅灰色-用于 我-还款账户边框

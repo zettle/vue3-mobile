@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont.eot?t=1605259589648'); /* IE9*/
+  src: url('iconfont.eot?t=1605259589648#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("iconfont.woff2?t=1605259589648") format("woff2"),
+  url("iconfont.woff?t=1605259589648") format("woff"),
+  url('iconfont.ttf?t=1605259589648') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1605259589648#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+[class^="iconfont-"], [class*=" iconfont-"] {
+  font-family: 'iconfont' !important;
+  font-size:32px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.iconfont-add:before { content: "\ea01"; }
+.iconfont-app-close:before { content: "\ea02"; }
+.iconfont-arrow-down:before { content: "\ea03"; }
+.iconfont-arrow-left:before { content: "\ea04"; }
+.iconfont-arrow-right:before { content: "\ea05"; }
+.iconfont-arrow-up:before { content: "\ea06"; }
+.iconfont-backspace:before { content: "\ea07"; }
+.iconfont-bell-active:before { content: "\ea08"; }
+.iconfont-bell:before { content: "\ea09"; }
+.iconfont-calendar:before { content: "\ea0a"; }
+.iconfont-camera:before { content: "\ea0b"; }
+.iconfont-can-see-pass:before { content: "\ea0c"; }
+.iconfont-cant-see-pass:before { content: "\ea0d"; }
+.iconfont-checked:before { content: "\ea0e"; }
+.iconfont-close:before { content: "\ea0f"; }
+.iconfont-copy:before { content: "\ea10"; }
+.iconfont-del:before { content: "\ea11"; }
+.iconfont-edit:before { content: "\ea12"; }
+.iconfont-home-active:before { content: "\ea13"; }
+.iconfont-home:before { content: "\ea14"; }
+.iconfont-mine-active:before { content: "\ea15"; }
+.iconfont-mine:before { content: "\ea16"; }
+.iconfont-phone:before { content: "\ea17"; }
+.iconfont-return:before { content: "\ea18"; }
+.iconfont-scan:before { content: "\ea19"; }
+.iconfont-search:before { content: "\ea1a"; }
+.iconfont-selected:before { content: "\ea1b"; }
+.iconfont-service:before { content: "\ea1c"; }
+.iconfont-un-selected:before { content: "\ea1d"; }
+.iconfont-warm:before { content: "\ea1e"; }
+.iconfont-zoomin:before { content: "\ea1f"; }
+.iconfont-zoomout:before { content: "\ea20"; }

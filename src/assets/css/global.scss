@@ -1,0 +1,28 @@
+body {
+    // 移动端overflow: hidden无效，需要加上fixed，absolute都不行
+    position: fixed;
+    top: 0;
+    left: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #000;
+    font-size: 32px;
+    transform: translateX(-50%);
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * flex相关
+ */
+.flex {
+    display: flex;
+    .flex-1 { flex: 1; }
+}
+.inline-flex { display: inline-flex; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-end { justify-content: flex-end; }
+.align-center { align-items: center; }
+.flex-dir-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }

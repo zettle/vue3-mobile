@@ -1,0 +1,119 @@
+.bank-logo-icon {
+    display: inline-block;
+    background-image: url(./sprite.png);
+    background-size: 90px 1818px;
+}
+
+.bank-logo-icon-102 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -96px;
+}
+
+.bank-logo-icon-103 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -864px;
+}
+
+.bank-logo-icon-104 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -192px;
+}
+
+.bank-logo-icon-105 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -288px;
+}
+
+.bank-logo-icon-301 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -384px;
+}
+
+.bank-logo-icon-302 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -480px;
+}
+
+.bank-logo-icon-303 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -576px;
+}
+
+.bank-logo-icon-304 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -672px;
+}
+
+.bank-logo-icon-306 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -768px;
+}
+
+.bank-logo-icon-307 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px 0px;
+}
+
+.bank-logo-icon-308 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -960px;
+}
+
+.bank-logo-icon-309 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1056px;
+}
+
+.bank-logo-icon-310 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1152px;
+}
+
+.bank-logo-icon-313 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1248px;
+}
+
+.bank-logo-icon-314 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1344px;
+}
+
+.bank-logo-icon-315 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1440px;
+}
+
+.bank-logo-icon-325 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1536px;
+}
+
+.bank-logo-icon-403 {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1632px;
+}
+
+.bank-logo-icon-default {
+    width: 90px;
+    height: 90px;
+    background-position: 0px -1728px;
+}

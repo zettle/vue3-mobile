@@ -34,12 +34,17 @@ const routes: RouteRecordRaw[] = [
             {
                 path: 'all',
                 component: () => import(/* webpackChunkName: 'demo-all' */'../pages/demo/all.vue'),
-                meta: { title: '按钮' }
+                meta: { title: '各种测试' }
             },
             {
                 path: 'button',
-                component: () => import(/* webpackChunkName: 'demo-list' */'../pages/demo/button.vue'),
+                component: () => import(/* webpackChunkName: 'demo-button' */'../pages/demo/button.vue'),
                 meta: { title: '按钮' }
+            },
+            {
+                path: 'vant',
+                component: () => import(/* webpackChunkName: 'demo-vant' */'../pages/demo/vant.vue'),
+                meta: { title: 'vant组件' }
             }
         ]
     }

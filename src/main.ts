@@ -2,6 +2,8 @@ import { createApp, version } from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+// import Vant from 'vant';
+// import 'vant/lib/index.css';
 
 // 全局组件的引入
 import MButton from './components/baseCom/MButton.vue';
@@ -42,5 +44,7 @@ app.component(MButton.name, MButton)
 
 // 注册 vuex 和 vue-router
 app.use(store).use(router);
+// app.use(Vant);
 
-app.mount('#app');
+router.isReady().then(() => app.mount('#app'));
+// app.mount('#app');

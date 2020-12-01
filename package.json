@@ -9,6 +9,7 @@
         "jslint": "vue-cli-service lint",
         "csslint": "stylelint ./src/**/*.{html,vue,css,sass,scss} --fix",
         "inspect": "vue-cli-service inspect --mode production >> inspect.js",
+        "analy": "vue-cli-service build --report",
         "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
         "gulpsprite": "gulp sprite",
         "gulpfont": "gulp font"

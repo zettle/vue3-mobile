@@ -1,17 +1,20 @@
 <template>
-    <div>
+    <m-layout>
         <m-button @click="goPage('/demo/button')">按钮UI</m-button>
-    </div>
+        <m-button class="mt-30" @click="goPage('/demo/vant')">vant</m-button>
+    </m-layout>
 </template>
 
 <script lang="ts">
+import MLayout from '@/components/baseCom/MLayout.vue';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 export default defineComponent({
+    components: { MLayout },
     setup () {
         const router = useRouter();
         const goPage = (urlPath: string) => {
-            router.push(urlPath);
+            router.$push(urlPath);
         };
 
         return { goPage };

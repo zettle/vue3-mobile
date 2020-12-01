@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["demo-button"],{6247:function(t,e,n){"use strict";n.r(e);var c=n("7a23"),u=Object(c["h"])(" 发速度快放假 ");function r(t,e,n,r,o,a){var b=Object(c["F"])("m-layout");return Object(c["y"])(),Object(c["f"])(b,null,{default:Object(c["N"])((function(){return[u]})),_:1})}var o=Object(c["j"])({});o.render=r;e["default"]=o}}]);

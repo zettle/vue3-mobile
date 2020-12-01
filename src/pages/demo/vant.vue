@@ -1,8 +1,7 @@
 <template>
-    <div>
-        404 {{msg}}
+    <m-layout>
         <van-button round type="primary">主要按钮</van-button>
-    </div>
+    </m-layout>
 </template>
 
 <script lang="ts">
@@ -12,10 +11,6 @@ import { defineComponent } from 'vue';
 export default defineComponent({
     components: {
         [Button.name]: Button
-    },
-    setup () {
-        const msg = '未找到';
-        return { msg };
     }
 });
 </script>

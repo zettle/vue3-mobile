@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <m-layout>
         发速度快放假
-    </div>
+    </m-layout>
 </template>
 
 <script lang="ts">

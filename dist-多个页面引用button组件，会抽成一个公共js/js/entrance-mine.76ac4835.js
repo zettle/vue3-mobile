@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["entrance-mine"],{a4e6:function(e,n,c){"use strict";c.r(n);var t=c("7a23"),a={class:""};function i(e,n){return Object(t["p"])(),Object(t["d"])("div",a," mineIndex-page ")}const r={};r.render=i;n["default"]=r}}]);

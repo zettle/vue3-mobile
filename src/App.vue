@@ -1,11 +1,11 @@
 <template>
-    <router-view
-        v-slot="{ Component }"
-        class="page">
-        <transition :name="transitionName">
-            <component :is="Component"></component>
-        </transition>
-    </router-view>
+    <div>
+        <router-view v-slot="{ Component }">
+            <transition :name="transitionName">
+                <component :is="Component" class="page"></component>
+            </transition>
+        </router-view>
+    </div>
 </template>
 
 <script lang="ts">
@@ -48,7 +48,7 @@ export default defineComponent({
 .slide-right-enter-active,
 .slide-right-leave-active {
     transition: transform 0.3s;
-    // transition: transform 40s;
+    // transition: transform 10s;
 }
 
 .slide-left-enter-from,

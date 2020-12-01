@@ -6,7 +6,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useAxios } from '@hooks/useAxios';
 export default defineComponent({
-
+    setup () {
+        const axios = useAxios();
+        console.log(axios);
+        // axios.get();
+    }
 });
 </script>

@@ -12,7 +12,8 @@
         "analy": "vue-cli-service build --report",
         "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
         "gulpsprite": "gulp sprite",
-        "gulpfont": "gulp font"
+        "gulpfont": "gulp font",
+        "mock": "nodemon mockServer/app.js"
     },
     "dependencies": {
         "axios": "^0.21.0",

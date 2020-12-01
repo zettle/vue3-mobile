@@ -1,5 +1,4 @@
-/* eslint-disable */
-const fs = require('fs');
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const tsImportPluginFactory = require('ts-import-plugin');
 const WebpackBar = require('webpackbar');

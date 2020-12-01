@@ -123,7 +123,7 @@ module.exports = {
             shouldMatchCase: false
         }],
         // boolean类型的prop不要设置默认值
-        'vue/no-boolean-default': ['error', 'no-default'],
+        // 'vue/no-boolean-default': ['error', 'no-default'],
         // 用了$attr就要加上 inheritAttrs: false
         'vue/no-duplicate-attr-inheritance': ['error'],
         // 禁止template/script/style里面没有内容

@@ -26,3 +26,22 @@ body {
 .align-center { align-items: center; }
 .flex-dir-column { flex-direction: column; }
 .flex-wrap { flex-wrap: wrap; }
+
+
+
+/*
+ * margin相关
+ */
+$i: 10;
+
+@while $i <= 100 {
+    @each $name, $item in (mt, top),
+        (mr, right),
+        (mb, bottom),
+        (ml, left) {
+        .#{$name}-#{$i} {
+            margin-#{$item}: (1px * $i) !important;
+        }
+    }
+    $i: $i + 10;
+}

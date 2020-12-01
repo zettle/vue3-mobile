@@ -69,3 +69,44 @@ document.addEventListener('touchstart', () => { /* empty */ });
 ```
 
 `keep-alive`类似
+
+
+
+## inheritAttrs会影响class等属性
+```vue
+<m-button class="mt-30">主要按钮111</m-button>
+```
+在vue2.0中，即使加了`inheritAttrs:false`，class会自动加到子级上，到了vue3就不会了
+
+[解答](https://github.com/vuejs/vue-next/pull/457)
+
+![](./readmeImg/yy.png)
+
+
+
+## vue-router配置404页面
+在vue2中，用下面的写法
+```js
+{
+    path: "*", // 此处需特别注意置于最底部
+    component: () => import('../pages/error/404.vue')
+}
+```
+
+在vue3中，要用下面的写法
+```js
+{
+    path: '/:pathMatch(.*)', // 可以在任何位置
+    component: () => import('../pages/error/404.vue')
+},
+```
+如果使用
+```js
+{
+    path: '/:pathMatch(.*)', // 配置404
+    redirect: '/error/notFound'
+}
+```
+会提示`{Vue Router warn]: Path "/error/notFound" was passed with params but they will be ignored. Use a named route alongside params instead.`
+
+暂未找到对应解决方法

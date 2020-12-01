@@ -16,7 +16,7 @@ export type ButtonSize = 'block' | 'lg' | 'md' | 'sm' | 'xs'; // 按钮大小
 
 export default defineComponent({
     name: 'MButton',
-    inheritAttrs: false,
+    // inheritAttrs: false,
     props: {
         // 按钮类型-控制的是按钮的颜色
         type: {
@@ -39,9 +39,7 @@ export default defineComponent({
         plain: Boolean // 按钮是否镂空
     },
     emits: {
-        click () {
-            return true;
-        }
+        click: () => true
     },
     setup (props, { emit }) {
         const clickHandle = () => {
@@ -59,7 +57,6 @@ export default defineComponent({
                 }
             ];
         });
-
         return { clickHandle, clsName };
     }
 });

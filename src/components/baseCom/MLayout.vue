@@ -1,7 +1,7 @@
 <template>
-    <div class="m-layout">
+    <div>
         <m-header></m-header>
-        <div class="container">
+        <div :class="['app-content', {'has-header': isHasHeader}]">
             <slot></slot>
         </div>
     </div>
@@ -13,7 +13,11 @@ import MHeader from './MHeader.vue';
 
 export default defineComponent({
     name: 'MLayout',
-    components: { MHeader }
+    components: { MHeader },
+    props: {
+        isHasHeader: { type: Boolean, default: true }, // 是否需要头部导航栏
+        isHasFooter: { type: Boolean } // 是否需要底部导航栏
+    }
 });
 </script>
 

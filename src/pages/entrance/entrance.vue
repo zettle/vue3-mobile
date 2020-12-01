@@ -1,5 +1,5 @@
 <template>
-    <div class="sjdkfj">
+    <div>
         <router-view v-slot="{ Component }" class="entrance-page">
             <transition :name="transitionName">
                 <component :is="Component"></component>

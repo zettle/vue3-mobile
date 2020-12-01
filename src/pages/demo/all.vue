@@ -1,9 +1,7 @@
 <template>
-    <m-layout>
-        <m-button @click="goBackHandle">
-            返回
-        </m-button>
-    </m-layout>
+    <div>
+        <m-button @click="goPage('/demo/button')">按钮UI</m-button>
+    </div>
 </template>
 
 <script lang="ts">
@@ -12,11 +10,11 @@ import { useRouter } from 'vue-router';
 export default defineComponent({
     setup () {
         const router = useRouter();
-        const goBackHandle = () => {
-            router.$goBack();
+        const goPage = (urlPath: string) => {
+            router.push(urlPath);
         };
 
-        return { goBackHandle };
+        return { goPage };
     }
 });
 </script>

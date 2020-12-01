@@ -7,6 +7,11 @@ const routes: RouteRecordRaw[] = [
         redirect: '/entrance/home'
     },
     {
+        path: '/:pathMatch(.*)', // 配置404
+        // redirect: '/error/notFound'
+        component: () => import(/* webpackChunkName: 'error-e404' */'../pages/error/notFound.vue')
+    },
+    {
         path: '/entrance',
         component: () => import(/* webpackChunkName: 'entrance' */'../pages/entrance/entrance.vue'),
         children: [
@@ -23,16 +28,32 @@ const routes: RouteRecordRaw[] = [
         ]
     },
     {
-        path: '/news',
+        path: '/demo',
         component: viewPage,
         children: [
             {
-                path: 'list',
-                component: () => import(/* webpackChunkName: 'news-list' */'../pages/news/list.vue'),
-                meta: { title: '我的消息' }
+                path: 'all',
+                component: () => import(/* webpackChunkName: 'demo-all' */'../pages/demo/all.vue'),
+                meta: { title: '按钮' }
+            },
+            {
+                path: 'button',
+                component: () => import(/* webpackChunkName: 'demo-list' */'../pages/demo/button.vue'),
+                meta: { title: '按钮' }
             }
         ]
     }
+    // {
+    //     path: '/error',
+    //     component: viewPage,
+    //     children: [
+    //         {
+    //             path: 'notFound',
+    //             component: () => import(/* webpackChunkName: 'error-enotFound' */'../pages/error/notFound.vue'),
+    //             meta: { title: 'notFound' }
+    //         }
+    //     ]
+    // },
 ];
 
 export default routes;

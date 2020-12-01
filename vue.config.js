@@ -17,11 +17,11 @@ const vueConfig = {
     devServer: {
         host: '0.0.0.0',
         proxy: {
-            '/channel_api': {
-                target: 'http://jrsit.midea.com/channel_api',
+            '/api': {
+                target: 'http://localhost:3000/api',
                 ws: true,
                 changOrigin: true,
-                pathRewrite: { '^/channel_api': '' }
+                pathRewrite: { '^/api': '' }
             }
         }
     },

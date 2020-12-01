@@ -1,5 +1,5 @@
 {
-  "name": "mockServer",
+  "name": "mock-server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.13.0"
+    "koa": "^2.13.0",
+    "mockjs": "^1.1.0"
   },
   "devDependencies": {
     "koa-bodyparser": "^4.3.0"

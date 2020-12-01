@@ -1,8 +1,11 @@
 /* eslint-disable */
 const fs = require('fs');
 const path = require('path');
+const tsImportPluginFactory = require('ts-import-plugin');
 const WebpackBar = require('webpackbar');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+const { merge } = require('webpack-merge');
 /* eslint-enable */
 
 function resolve (dir) {
@@ -29,7 +32,7 @@ const vueConfig = {
             .alias
             .set('@', resolve('./src'))
             .set('@assets', resolve('src/assets'))
-            .set('@components', resolve('src/components'))
+            .set('@com', resolve('src/components'))
             .set('@hooks', resolve('src/hooks'))
             .set('@js', resolve('src/js'))
             .set('@pages', resolve('src/pages'))
@@ -50,6 +53,25 @@ const vueConfig = {
                     resources: [resolve('./src/assets/css/_variable.scss')]
                 })
                 .end();
+        });
+
+        // ts-import-plugin配置vant按需加载
+        config.module.rule('ts').use('ts-loader').tap(options => {
+            return merge(options, {
+                getCustomTransformers: () => ({
+                    before: [
+                        tsImportPluginFactory({
+                            libraryName: 'vant',
+                            libraryDirectory: 'es',
+                            // style: name => `${name}/style`
+                            style: true
+                        })
+                    ]
+                }),
+                compilerOptions: {
+                    module: 'es2015'
+                }
+            });
         });
     },
     configureWebpack: config => {

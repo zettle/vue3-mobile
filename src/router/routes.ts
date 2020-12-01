@@ -45,7 +45,12 @@ const routes: RouteRecordRaw[] = [
                 path: 'vant',
                 component: () => import(/* webpackChunkName: 'demo-vant' */'../pages/demo/vant.vue'),
                 meta: { title: 'vant组件' }
-            }
+            },
+            {
+                path: 'ajax',
+                component: () => import(/* webpackChunkName: 'demo-ajax' */'../pages/demo/ajax.vue'),
+                meta: { title: 'ajax请求' }
+            },
         ]
     }
     // {

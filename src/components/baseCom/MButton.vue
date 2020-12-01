@@ -16,7 +16,6 @@ export type ButtonSize = 'block' | 'lg' | 'md' | 'sm' | 'xs'; // 按钮大小
 
 export default defineComponent({
     name: 'MButton',
-    // inheritAttrs: false,
     props: {
         // 按钮类型-控制的是按钮的颜色
         type: {

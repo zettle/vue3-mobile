@@ -2,6 +2,7 @@
     <m-layout>
         <m-button @click="goPage('/demo/button')">按钮UI</m-button>
         <m-button class="mt-30" @click="goPage('/demo/vant')">vant</m-button>
+        <m-button class="mt-30" @click="goPage('/demo/ajax')">axios请求</m-button>
     </m-layout>
 </template>
 

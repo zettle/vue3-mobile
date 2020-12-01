@@ -45,3 +45,45 @@ $i: 10;
     }
     $i: $i + 10;
 }
+
+
+/**
+ * 半透明遮罩层
+ */
+.m-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    // 全透明效果
+    &.m-mask-trans {
+        background: none;
+    }
+
+    // 全黑
+    &.m-mask-black {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+}
+
+
+/**
+ * 过渡动画，已运用于浮层popup类的组件，比如dialog
+ */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}

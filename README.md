@@ -43,6 +43,7 @@ document.addEventListener('touchstart', () => { /* empty */ });
 
 
 ## vue3 v-model的自定义实现
+支持多个属性绑定v-model
 
 
 ## vue3 transiton组件命名的更改
@@ -70,7 +71,10 @@ document.addEventListener('touchstart', () => { /* empty */ });
 
 `keep-alive`类似
 
+## $attrs
+在vue2中表示非props的属性
 
+在vue3中表示非子组件声明好的prop和事件，即包括了vue2中的$attr和$listeners
 
 ## inheritAttrs会影响class等属性
 ```vue

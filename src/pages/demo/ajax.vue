@@ -1,15 +1,12 @@
 <template>
-    <div>
-        404 {{msg}}
-    </div>
+    <m-layout>
+        <m-button size="sm">发起1个请求</m-button>
+    </m-layout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-    setup () {
-        const msg = '未找到';
-        return { msg };
-    }
+
 });
 </script>

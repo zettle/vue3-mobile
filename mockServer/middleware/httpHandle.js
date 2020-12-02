@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const { mock } = require('mockjs');
-const { ErrResp } = require('../api/baseResp');
+const { errResp } = require('../api/baseResp');
 /* eslint-enable */
 module.exports = async (ctx, next) => {
     const apiUrl = new URL(ctx.request.href).pathname.substr(1);
@@ -11,10 +11,10 @@ module.exports = async (ctx, next) => {
         const filepath = path.resolve(__dirname, '../', `${apiUrl}.js`);
         // 判断路径是否存在
         if (fs.existsSync(filepath)) {
-            const data = require(filepath);
+            const data = require(filepath); // eslint-disable-line @typescript-eslint/no-var-requires
             ctx.body = mock(data(ctx));
         } else {
-            ctx.body = new ErrResp(`未找到: ${filepath}`);
+            ctx.body = errResp(`未找到: ${filepath}`);
         }
     }
     await next();

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from 'vue';
+import { defineComponent } from 'vue';
 import useAxios from '@hooks/useAxios';
 // import axios from 'axios';
 // 字典项接口
@@ -25,11 +25,11 @@ export default defineComponent({
         // });
         // return { list };
         const axios = useAxios();
-        const { isLoading, resp: list } = axios.get<FetchDicListType[]>('/api/common/getDicList');
+        const { isLoading, resp: list } = axios.get<FetchDicListType[]>('/common/getDicList');
         console.log(isLoading);
 
         const sendOne = async () => {
-            const resp = await axios.getSync<FetchDicListType[]>('/api/common/getDicList');
+            const resp = await axios.getSync<FetchDicListType[]>('/common/getDicList');
             console.log(resp);
         };
         return { list, sendOne };

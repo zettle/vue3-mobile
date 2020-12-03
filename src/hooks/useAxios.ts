@@ -1,49 +1,88 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
-import {ref, reactive, Ref, toRefs} from 'vue';
+import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
+import {ref, Ref} from 'vue';
 
 
 class Http {
-    constructor(private instance = axios.create()) {
+    private instance: AxiosInstance = axios.create(); // axios对象
+    constructor(baseURL = '/api/') {
+        this.instance.defaults.timeout = 120000; // 超时时间，单位ms，这里设置为2分钟
+        // this.instance.defaults.baseURL = baseURL; // api路径
+
         this.requestInterce();
         this.responseInterce();
-        this.instance.defaults.timeout = 120000; // 超时时间，单位ms，这里设置为2分钟
-        this.instance.defaults.baseURL = '/api'; //
     }
-    // 请求前拦截器
-    private requestInterce () {
+
+    /**
+     * request拦截器
+     */
+    private requestInterce(): void {
         this.instance.interceptors.request.use((config: AxiosRequestConfig) => {
             return config;
         });
-
     }
-    // 请求后拦截器
-    private responseInterce () {
-        this.instance.interceptors.response.use(<T>(response: AxiosResponse) => {
-            return Promise.resolve(response.data);
+
+    /**
+     * response拦截器
+     */
+    private responseInterce(): void {
+        this.instance.interceptors.response.use((response: AxiosResponse) => {
+            return response.data;
         });
     }
 
-    // 给外界调用获取axios对象
+    /**
+     * 给外界获取axios实例对象
+     */
     public getAxios () {
         return this.instance;
     }
 }
 const http = new Http();
 
-export default function () {
-    return {
-        get<T> (url: string) {
-            const resp: Ref<T | null> = ref(null);
-            const isLoading = ref(true);
-            http.getAxios().get<T>(url).then(res => {
-                resp.value = res.data;
-                isLoading.value = false;
-            });
-            return { resp, isLoading };
-        },
-        getSync<T> (url: string) {
-            return http.getAxios().get<T>(url);
-        }
-    };
-};
+/**
+ * 提供给外部调用-封装Get请求
+ * @params {String} url 请求的字符串
+ * @param {JSON} data 请求带的参数
+ * @param {JSON} config 配置信息，比如是否要出现弹窗等等
+ * 目前只支持isShowLoaing/loadingTitle
+ * @return {Promise} 返回一个promise，ajax调用成功返回数据时resolve
+ */
+export function useHttpGet<T> (url: string, params: Ajax.Request = {}, config: AxiosRequestConfig = {}): Promise<Ajax.Response<T>> {
+    return http.getAxios().get(url, {
+        params,
+        ...Object.assign({}, config)
+    });
+}
+export function useHttpGetReact<T> (url: string, params: Ajax.Request = {}, config: AxiosRequestConfig = {}) {
+    const isLoading = ref(true);
+    const resp: Ref<Ajax.Response<T> | null> = ref(null);
 
+    (async () => {
+        const result = await useHttpGet<T>(url, params, config);
+        resp.value = result;
+        isLoading.value = false;
+    })();
+    return { isLoading, resp };
+}
+/**
+ * 提供给外部调用-封装Post请求
+ * @params {String} url 请求的字符串
+ * @param {JSON} data 请求带的参数
+ * @param {JSON} config 配置信息，比如是否要出现弹窗等等
+ * 目前只支持isShowLoaing/loadingTitle
+ * @return {Promise} 返回一个promise，ajax调用成功返回数据时resolve
+ */
+export function useHttpPost<T> (url: string, params: Ajax.Request = {}, config: AxiosRequestConfig = {}): Promise<Ajax.Response<T>> {
+    return http.getAxios().post(url, params, Object.assign({}, config));
+}
+export function useHttpPostReact<T> (url: string, params: Ajax.Request = {}, config: AxiosRequestConfig = {}) {
+    const isLoading = ref(true);
+    const resp: Ref<Ajax.Response<T> | null> = ref(null);
+
+    (async () => {
+        const result = await useHttpPost<T>(url, params, config);
+        resp.value = result;
+        isLoading.value = false;
+    })();
+    return { isLoading, resp };
+}

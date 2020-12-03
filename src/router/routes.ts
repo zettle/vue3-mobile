@@ -51,6 +51,22 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: 'demo-ajax' */'../pages/demo/ajax.vue'),
                 meta: { title: 'ajax请求' }
             },
+            {
+                path: 'loading',
+                component: () => import(/* webpackChunkName: 'demo-loading' */'../pages/demo/loading.vue'),
+                meta: { title: 'Loading' }
+            },
+        ]
+    },
+    {
+        path: '/public',
+        component: viewPage,
+        children: [
+            {
+                path: 'choiceType',
+                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/choiceType.vue'),
+                meta: { title: '各种测试' }
+            }
         ]
     }
     // {

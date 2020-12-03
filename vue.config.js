@@ -3,7 +3,6 @@ const path = require('path');
 const tsImportPluginFactory = require('ts-import-plugin');
 const WebpackBar = require('webpackbar');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-
 const { merge } = require('webpack-merge');
 /* eslint-enable */
 
@@ -22,6 +21,12 @@ const vueConfig = {
                 ws: true,
                 changOrigin: true,
                 pathRewrite: { '^/api': '' }
+            },
+            '/fun_api': {
+                target: 'http://localhost:3000/fun_api',
+                ws: true,
+                changOrigin: true,
+                pathRewrite: { '^/fun_api': '' }
             }
         }
     },

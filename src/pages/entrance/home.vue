@@ -2,6 +2,7 @@
     <m-layout>
         <m-button class="mt-30" @click="goTestPage">主要按钮111</m-button>
         <m-button class="mt-30" @click="goPage('/demo/all')">测试页面</m-button>
+        <m-button class="mt-30" @click="goPage('/public/choiceType')">对公-选择类型</m-button>
     </m-layout>
 </template>
 

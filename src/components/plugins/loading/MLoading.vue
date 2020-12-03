@@ -15,7 +15,7 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
     props: {
-        tipTxt: { type: String, default: 'sdfsdf' }, // 展示在loading上的文字
+        tipTxt: { type: String, default: '' }, // 展示在loading上的文字
         isShow: { type: Boolean } // 是否展示loading
     }
 });

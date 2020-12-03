@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <router-view v-slot="{ Component }">
-            <transition :name="transitionName">
-                <component :is="Component" class="page"></component>
-            </transition>
-        </router-view>
-    </div>
+    <router-view v-slot="{ Component }">
+        <transition :name="transitionName">
+            <component :is="Component" class="page"></component>
+        </transition>
+    </router-view>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+
 export default defineComponent({
     setup () {
         const transitionName = ref('slide-right');

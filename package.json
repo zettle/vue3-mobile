@@ -19,7 +19,7 @@
         "axios": "^0.21.0",
         "core-js": "^3.6.5",
         "vant": "^3.0.0-beta.10",
-        "vue": "^3.0.0",
+        "vue": "^3.0.4",
         "vue-router": "^4.0.0-0",
         "vuex": "^4.0.0-0"
     },
@@ -54,6 +54,7 @@
         "stylelint-webpack-plugin": "^2.1.1",
         "ts-import-plugin": "^1.6.6",
         "typescript": "~3.9.3",
+        "webpack-cli": "^4.2.0",
         "webpack-merge": "^5.4.0",
         "webpackbar": "^5.0.0-3"
     }

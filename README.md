@@ -114,3 +114,13 @@ document.addEventListener('touchstart', () => { /* empty */ });
 会提示`{Vue Router warn]: Path "/error/notFound" was passed with params but they will be ignored. Use a named route alongside params instead.`
 
 暂未找到对应解决方法
+
+
+# 当使用虚拟节点或者非根组件的时候
+
+emits事件不支持中横线，需要写成驼峰，否则会报错
+```
+Extraneous non-emits event listeners (closeToast) were passed to component but could not be automatically inherited because component renders fragment or text root nodes. If the listener is intended to be a component custom event listener only, declare it using the "emits" option. 
+```
+
+这个是vue的bug，[记录](https://github.com/vuejs/vue-next/pull/2542)，当前vue版本3.0.3

@@ -1,7 +1,7 @@
 <template>
     <div>
         <m-header></m-header>
-        <div :class="['app-content', {'has-header': isHasHeader}]">
+        <div :class="['app-content', {'has-header': isHasHeader, 'white-page': isWhitePage}]">
             <slot></slot>
         </div>
     </div>
@@ -16,7 +16,7 @@ export default defineComponent({
     components: { MHeader },
     props: {
         isHasHeader: { type: Boolean, default: true }, // 是否需要头部导航栏
-        isHasFooter: { type: Boolean } // 是否需要底部导航栏
+        isWhitePage: { type: Boolean } // 是否需要底部导航栏
     }
 });
 </script>

@@ -4,7 +4,7 @@ import router from './router';
 import store from './store';
 // import Vant from 'vant';
 // import 'vant/lib/index.css';
-
+console.log('vue版本', version);
 // 全局组件的引入
 import MButton from './components/baseCom/MButton.vue';
 import MLayout from './components/baseCom/MLayout.vue';

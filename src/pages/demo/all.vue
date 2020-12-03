@@ -1,5 +1,5 @@
 <template>
-    <m-layout>
+    <m-layout :is-white-page="true">
         <m-button @click="goPage('/demo/button')">按钮UI</m-button>
         <m-button class="mt-30" @click="goPage('/demo/vant')">vant</m-button>
         <m-button class="mt-30" @click="goPage('/demo/loading')">loading</m-button>

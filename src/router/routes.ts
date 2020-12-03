@@ -1,5 +1,10 @@
-import { RouteRecordRaw } from 'vue-router';
-import viewPage from './viewPage.vue';
+import { h, defineAsyncComponent, defineComponent } from 'vue';
+// import veiwPage from './viewPage.vue';
+import { RouteRecordRaw, RouterView } from 'vue-router';
+
+const viewContainer = defineComponent({
+    render: () => h(RouterView)
+});
 
 const routes: RouteRecordRaw[] = [
     {
@@ -8,7 +13,6 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/:pathMatch(.*)', // 配置404
-        // redirect: '/error/notFound'
         component: () => import(/* webpackChunkName: 'error-e404' */'../pages/error/notFound.vue')
     },
     {
@@ -29,7 +33,7 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/demo',
-        component: viewPage,
+        component: viewContainer,
         children: [
             {
                 path: 'all',
@@ -60,26 +64,40 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/public',
-        component: viewPage,
+        component: viewContainer,
         children: [
             {
                 path: 'choiceType',
                 component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/choiceType.vue'),
-                meta: { title: '各种测试' }
+                meta: { title: '基本信息' }
+            },
+            {
+                path: 'choiceBankCard',
+                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/choiceBankCard.vue'),
+                meta: { title: '绑定银行卡' }
+            },
+            {
+                path: 'certification',
+                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/certification.vue'),
+                meta: { title: '企业认证' }
+            },
+            {
+                path: 'authentication',
+                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/authentication.vue'),
+                meta: { title: '认证信息' }
+            },
+            {
+                path: 'corporateInfo',
+                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/corporateInfo.vue'),
+                meta: { title: '法人信息' }
+            },
+            {
+                path: 'recognition',
+                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/recognition.vue'),
+                meta: { title: '人脸识别' }
             }
         ]
     }
-    // {
-    //     path: '/error',
-    //     component: viewPage,
-    //     children: [
-    //         {
-    //             path: 'notFound',
-    //             component: () => import(/* webpackChunkName: 'error-enotFound' */'../pages/error/notFound.vue'),
-    //             meta: { title: 'notFound' }
-    //         }
-    //     ]
-    // },
 ];
 
 export default routes;

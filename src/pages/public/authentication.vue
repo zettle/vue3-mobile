@@ -1,6 +1,6 @@
 <template>
     <m-layout>
-        <div class="choice"> 
+        <div class="choice">
             <div class="choice-form">
                 <div class="left">企业信息</div>
                 <div class="right">去完成<span>></span></div>
@@ -13,7 +13,10 @@
                 <div class="left">联系人信息</div>
                 <div class="right">去完成<span>></span></div>
             </div>
-            <button class="choice-button">提交</button>
+
+            <div class="page-space">
+                <m-button class="mt-30">提交</m-button>
+            </div>
         </div>
     </m-layout>
 </template>
@@ -22,19 +25,20 @@
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 export default defineComponent({
-    data () {
-        return {
-        }
-    },
     setup () {
         const router = useRouter();
         const goPage = (urlPath: string) => {
             router.$push(urlPath);
         };
         return { goPage };
+    },
+    data () {
+        return {
+        };
     }
 });
 </script>
+
 <style lang="scss" scoped>
     $backColor: #267aff;
     $blackColor: #000;
@@ -103,4 +107,3 @@ export default defineComponent({
         }
     }
 </style>
-

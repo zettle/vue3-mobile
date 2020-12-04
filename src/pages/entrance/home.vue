@@ -6,7 +6,7 @@
         <m-button class="mt-30" @click="goPage('/public/choiceBankCard')">对公-绑定银行卡</m-button>
         <m-button class="mt-30" @click="goPage('/public/certification')">对公-认证成功</m-button>
         <m-button class="mt-30" @click="goPage('/public/authentication')">对公-企业认证信息</m-button>
-        <m-button class="mt-30" @click="goPage('/public/recognition')">对公-人脸识别认证</m-button>
+        <!-- <m-button class="mt-30" @click="goPage('/public/recognition')">对公-人脸识别认证</m-button> -->
     </m-layout>
 </template>
 

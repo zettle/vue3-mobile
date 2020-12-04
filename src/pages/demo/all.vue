@@ -1,9 +1,11 @@
 <template>
     <m-layout :is-white-page="true">
-        <m-button @click="goPage('/demo/button')">按钮UI</m-button>
-        <m-button class="mt-30" @click="goPage('/demo/vant')">vant</m-button>
-        <m-button class="mt-30" @click="goPage('/demo/loading')">loading</m-button>
-        <m-button class="mt-30" @click="goPage('/demo/ajax')">axios请求</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/button')">按钮</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/sendmsm')">发送短信按钮</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/form')">表单</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/vant')">vant</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/loading')">loading</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/ajax')">axios请求</m-button>
     </m-layout>
 </template>
 

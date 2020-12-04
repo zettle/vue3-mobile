@@ -10,7 +10,7 @@ class Http {
 
     constructor(baseURL = '/api/') {
         this.instance.defaults.timeout = 120000; // 超时时间，单位ms，这里设置为2分钟
-        // this.instance.defaults.baseURL = baseURL; // api路径
+        this.instance.defaults.baseURL = baseURL; // api路径
         this.requestInterce();
         this.responseInterce();
     }
@@ -61,7 +61,12 @@ class Http {
     private responseInterce(): void {
         this.instance.interceptors.response.use((response: AxiosResponse) => {
             this.closeLoading();
-            return response.data;
+            const data: any = response.data;
+            if (data.code === 0) {
+                return Promise.resolve(data);
+            } else {
+                return Promise.reject(data);
+            }
         }, (err: Error) => {
             console.log(err);
             this.closeLoading(true);

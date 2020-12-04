@@ -60,6 +60,16 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: 'demo-loading' */'../pages/demo/loading.vue'),
                 meta: { title: 'Loading' }
             },
+            {
+                path: 'form',
+                component: () => import(/* webpackChunkName: 'demo-form' */'../pages/demo/form.vue'),
+                meta: { title: '表单' }
+            },
+            {
+                path: 'sendmsm',
+                component: () => import(/* webpackChunkName: 'demo-sendmsm' */'../pages/demo/sendmsm.vue'),
+                meta: { title: '发送短信' }
+            }
         ]
     },
     {
@@ -90,12 +100,12 @@ const routes: RouteRecordRaw[] = [
                 path: 'corporateInfo',
                 component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/corporateInfo.vue'),
                 meta: { title: '法人信息' }
-            },
-            {
-                path: 'recognition',
-                component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/recognition.vue'),
-                meta: { title: '人脸识别' }
             }
+            // {
+            //     path: 'recognition',
+            //     component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/recognition.vue'),
+            //     meta: { title: '人脸识别' }
+            // }
         ]
     }
 ];

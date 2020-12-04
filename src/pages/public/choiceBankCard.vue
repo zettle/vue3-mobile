@@ -1,43 +1,49 @@
 <template>
-    <m-layout>
-        <div class="choice"> 
+    <m-layout :is-white-page="true">
+        <div class="page-space">
             <p class="choice-title">请选择商户类型</p>
-            <div v-for="(item,index) in typtList" :key="index" class="choice-meus">{{item.name}}</div>
+            <ul class="choice-menu">
+                <li
+                    v-for="(item,$i) in typtList"
+                    :key="$i">
+                    {{item.name}}
+                </li>
+            </ul>
         </div>
     </m-layout>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, reactive, toRefs } from 'vue';
 export default defineComponent({
-    data () {
-        return {
+    setup () {
+        const data = reactive({
             typtList: [
-                { name: '企业工商户', url: ''},
-                { name: '个体工商户', url: ''}
+                { name: '企业工商户', url: '' },
+                { name: '个体工商户', url: '' }
             ]
-        }
+        });
+
+        return { ...toRefs(data) };
     }
 });
 </script>
+
 <style lang="scss" scoped>
-    .choice {
-        padding: 20px;
+.choice-title {
+    margin: 32px 0 42px 0;
+    font-weight: bold;
+    font-size: 30px;
+}
 
-        &-title {
-            color: #000;
-            font-size: 30px;
-            line-height: 54px;
-        }
-
-        &-meus {
-            height: 184px;
-            margin-top: 30px;
-            padding: 0 50px;
-            line-height: 184px;
-            background: #eef4ff;
-            border-radius: 20px;
-        }
+.choice-menu {
+    li {
+        height: 184px;
+        margin-top: 30px;
+        padding-left: 50px;
+        font-weight: bold;
+        line-height: 184px;
+        background-color: #eef4ff;
     }
+}
 </style>
-

@@ -13,6 +13,7 @@ module.exports = {
         ecmaVersion: 2020
     },
     rules: {
+        // '@typescript-eslint/no-explicit-any': ['off'], // 禁止声明any类型，关闭掉
         // 普通.js 普通.ts 的缩进
         indent: ['error', 4],
         // vue-template的缩进

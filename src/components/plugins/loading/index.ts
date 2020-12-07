@@ -1,4 +1,4 @@
-import { provide, ComponentInternalInstance, reactive, createApp, h, App, nextTick, getCurrentInstance } from 'vue';
+import { reactive, createApp, h, App } from 'vue';
 import MLoading from './MLoading.vue';
 
 const root: HTMLDivElement = document.createElement('div');
@@ -8,13 +8,7 @@ const state = reactive({
     tipTxt: ''
 });
 
-// const Wrapper = {
-//     setup () {
-//         return () => h(MLoading, {...state});
-//     }
-// };
-
-const Wrapper = () => h(MLoading, {...state});
+const Wrapper = () => h(MLoading, { ...state });
 
 let app: App<Element> | null = null;
 
@@ -25,14 +19,15 @@ export default function () {
             if (!app) {
                 app = createApp(Wrapper);
                 app.mount(root);
-                container?.appendChild(root);
+                container && container.appendChild(root);
+                // container?.appendChild(root);
             }
         },
 
         close () {
-            app?.unmount(root);
-            container?.removeChild(root);
+            app && app.unmount(root);
+            container && container.removeChild(root);
             app = null;
         }
-    }
-};
+    };
+}

@@ -10,7 +10,7 @@ function resolve (dir) {
     return path.join(__dirname, dir); // 原来的cli2是在build里面，这里就不需要回退了
 }
 const vueConfig = {
-    lintOnSave: false, // 使用vscode来处理，不用webpack处理，节省时间
+    lintOnSave: true, // 使用vscode来处理，不用webpack处理，节省时间
     publicPath: './', // 相对路径
     productionSourceMap: false, // 不生成map文件
     devServer: {

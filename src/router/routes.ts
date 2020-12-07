@@ -1,4 +1,4 @@
-import { h, defineAsyncComponent, defineComponent } from 'vue';
+import { h, defineComponent } from 'vue';
 // import veiwPage from './viewPage.vue';
 import { RouteRecordRaw, RouterView } from 'vue-router';
 
@@ -61,6 +61,11 @@ const routes: RouteRecordRaw[] = [
                 meta: { title: 'Loading' }
             },
             {
+                path: 'actionSheet',
+                component: () => import(/* webpackChunkName: 'demo-actionSheet' */'../pages/demo/actionSheet.vue'),
+                meta: { title: 'actionSheet' }
+            },
+            {
                 path: 'form',
                 component: () => import(/* webpackChunkName: 'demo-form' */'../pages/demo/form.vue'),
                 meta: { title: '表单' }
@@ -100,6 +105,11 @@ const routes: RouteRecordRaw[] = [
                 path: 'corporateInfo',
                 component: () => import(/* webpackChunkName: 'public-choiceType' */'../pages/public/corporateInfo.vue'),
                 meta: { title: '法人信息' }
+            },
+            {
+                path: 'sendmsm',
+                component: () => import(/* webpackChunkName: 'public-sendmsm' */'../pages/public/sendmsm.vue'),
+                meta: { title: '短信验证' }
             }
             // {
             //     path: 'recognition',

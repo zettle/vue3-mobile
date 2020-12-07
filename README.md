@@ -124,3 +124,48 @@ Extraneous non-emits event listeners (closeToast) were passed to component but c
 ```
 
 这个是vue的bug，[记录](https://github.com/vuejs/vue-next/pull/2542)，当前vue版本3.0.3
+
+
+
+# ::v-deep
+`::v-deep` 改为 `::v-deep(.className)`
+
+https://zhuanlan.zhihu.com/p/143048528
+
+
+# 过滤器移除
+https://v3.vuejs.org/guide/migration/filters.html
+
+过滤器被移除，推荐使用计算属性或者方法来实现
+
+
+# props自动推导
+props会自动推导，遇到复杂的类型时候，就推导不出
+```vue
+props: {
+    filedLabelName: { type: String, default: 'text' },
+} 
+```
+上面能自动推导出 `filedLabelName` 为字符串
+
+但是一旦遇到复杂的类型，就会推导出any
+
+```vue
+props: {
+    filedLabelName: { type: String, default: 'text' },
+    list: { type: Array as PropType<ItemType[]>, default () { return [];} }
+} 
+```
+推导出 `filedLabelName` 为any
+
+如果设置默认值的时候，用箭头函数又没有问题了
+```vue
+props: {
+    filedLabelName: { type: String, default: 'text' },
+    list: { type: Array as PropType<ItemType[]>, default: () => [] }
+}
+```
+又或者默认值写为undefined
+```vue
+list: { type: Array as PropType<ItemType[]>, default: undefined }
+```

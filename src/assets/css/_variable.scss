@@ -18,6 +18,7 @@ $imgPreviewZindex: 20; // 图片预览
   */
 $appHeaderHeight: 80px; // header的高度，也是内容的padding-top
 $appFooterHeight: 100px; // 底部tab菜单的高度，也是内容padding-bottom
+$pageSpace: 32px; // 页面左右两边的间隙
 
 /**
  * 颜色相关
@@ -38,3 +39,9 @@ $c-e5e8ea: #e5e8ea; // 浅灰色-用于 我-还款账户边框
  * 按钮
  */
 $btn-primary-bgColor: $meiBlue;
+
+
+/**
+ * 表单
+ */
+$form-empty-txt-color: #c7c7cc;

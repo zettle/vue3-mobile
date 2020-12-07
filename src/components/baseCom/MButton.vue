@@ -2,7 +2,7 @@
     <button
         :class="clsName"
         :disabled="disabled"
-        :type="actionType"
+        :type="nativeType"
         @click="clickHandle">
         <slot></slot>
     </button>
@@ -23,7 +23,7 @@ export default defineComponent({
             default: 'primary'
         },
         // 原生 button 标签的 type 属性
-        actionType: {
+        nativeType: {
             type: String,
             default: 'button'
         },

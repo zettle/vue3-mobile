@@ -56,7 +56,7 @@ $i: 10;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
 
     // 全透明效果
     &.m-mask-trans {
@@ -67,6 +67,12 @@ $i: 10;
     &.m-mask-black {
         background-color: rgba(0, 0, 0, 0.9);
     }
+}
+
+.font-color-meiblue,
+.iconfont-selected,
+.iconfont-checked { // 多选框选中状态
+    color: $meiBlue;
 }
 
 
@@ -89,6 +95,14 @@ $i: 10;
 }
 
 .page-space {
-    margin-right: 32px;
-    margin-left: 32px;
+    margin-right: $pageSpace;
+    margin-left: $pageSpace;
+}
+
+.clickable {
+    background-color: #fff;
+
+    &:active {
+        background-color: #f2f3f5 !important;
+    }
 }

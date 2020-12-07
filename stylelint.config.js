@@ -14,6 +14,12 @@ module.exports = {
         // css的不要，用 stylelint-scss 的 scss/at-rule-no-unknown
         // https://github.com/stylelint/stylelint/issues/3190
         'at-rule-no-unknown': null,
-        'scss/at-rule-no-unknown': true
+        'scss/at-rule-no-unknown': true,
+        'selector-pseudo-element-no-unknown': [true, {
+            ignorePseudoElements: ['v-deep'] // 忽略::v-deep()
+        }]
+        // 'selector-pseudo-class-no-unknown': [true, {
+        //     ignorePseudoClasses: ['v-deep'] // 忽略 :v-deep
+        // }]
     }
 };

@@ -6,8 +6,8 @@ declare namespace Ajax {
 
     // 接口返回的数据格式
     export interface Response<T> {
-        code: boolean; // 接口成功与否
+        code: number; // 接口成功与否
         data: T; // 业务数据
-        msg: string // 消息
+        msg: string; // 消息
     }
 }

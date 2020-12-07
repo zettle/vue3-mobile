@@ -1,7 +1,7 @@
 <template>
     <m-layout>
-        <div class="choice">  
-            <div class="choice-main">  
+        <div class="choice">
+            <div class="choice-main">
                 <div class="choice-form">
                     <div class="left">
                         <div>上传身份证照片</div>
@@ -11,11 +11,11 @@
                 </div>
                 <div class="choice-img">
                     <div>
-                        <img src="../../assets/images/card.png" alt="">
+                        <img alt="" src="../../assets/images/card.png" />
                         <p>上传身份证人像面</p>
                     </div>
                     <div>
-                        <img src="../../assets/images/card.png" alt="">
+                        <img alt="" src="../../assets/images/card.png" />
                         <p>上传身份证国徽面</p>
                     </div>
                 </div>
@@ -27,21 +27,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useRouter } from 'vue-router';
 export default defineComponent({
-    data () {
-        return {
-        }
-    },
-    setup () {
-        const router = useRouter();
-        const goPage = (urlPath: string) => {
-            router.$push(urlPath);
-        };
-        return { goPage };
-    }
 });
 </script>
+
 <style lang="scss" scoped>
     $backColor: #267aff;
     $blackColor: #000;
@@ -118,4 +107,3 @@ export default defineComponent({
         }
     }
 </style>
-

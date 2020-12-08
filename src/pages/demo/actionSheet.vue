@@ -35,8 +35,13 @@
         </m-action-sheet>
         <hr />
 
-        api调用 <br />
+        promise-api调用 <br />
         <button @click="showAS003">api调用</button>
+        <hr />
+
+        promise-api调用自定义字段 <br />
+        <button @click="showAS004">api调用</button>
+        <hr />
     </m-layout>
 </template>
 
@@ -89,15 +94,31 @@ export default defineComponent({
             isShowAS002.value = false;
         };
 
-        // API调用
-        const as003List: As003ItemType[] = [
-            { code: 'p001', text: '北京' },
-            { code: 'p002', text: '上海' },
-            { code: 'p003', text: '广东' }
-        ];
         const showAS003 = () => {
-            useActionSheet<As003ItemType>(as003List).then((item) => {
-                console.log(item);
+            useActionSheet({
+                list: [
+                    { code: 'p001', text: '北京' },
+                    { code: 'p002', text: '上海' },
+                    { code: 'p003', text: '广东' }
+                ]
+            }).then((item) => {
+                console.log('page', item);
+            });
+        };
+
+        let as004Value = 'sys002';
+        const showAS004 = () => {
+            useActionSheet({
+                modelValue: as004Value,
+                filedLabelName: 'name',
+                filedCodeName: 'sysId',
+                list: [
+                    { sysId: 'sys001', name: '读书' },
+                    { sysId: 'sys002', name: '写字' },
+                    { sysId: 'sys003', name: '画画' }
+                ]
+            }).then((item) => {
+                as004Value = item.sysId;
             });
         };
 
@@ -114,7 +135,10 @@ export default defineComponent({
             dataAS002,
             chooseItemAS002,
 
-            showAS003
+            showAS003,
+
+            showAS004
+
         };
     }
 });

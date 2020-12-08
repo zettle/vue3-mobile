@@ -1,7 +1,7 @@
 <template>
-    <div>
-        404 {{msg}}
-    </div>
+    <m-layout>
+        404 == {{msg}}
+    </m-layout>
 </template>
 
 <script lang="ts">

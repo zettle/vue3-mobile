@@ -1,79 +1,98 @@
-import { createApp, reactive, h, getCurrentInstance, defineComponent, ComponentPublicInstance, nextTick } from 'vue';
+import { App, createApp, defineComponent, h, reactive, toRaw } from 'vue';
 import MActionSheet from './MActionSheet.vue';
 
-type OpenActionSheet = <T>(props: MactionSheetOptionType<T>, callback: () => void) => void;
-
-// 基于ComponentPublicInstance扩展的
-interface MActionSheetComponent extends ComponentPublicInstance {
-    open: OpenActionSheet;
+// 默认list的元素
+interface DefListType {
+    code: string;
+    text: string;
 }
-// MActionSheet的配置项
-export interface MactionSheetOptionType<T> {
-    title?: string;
-    modelValue?: string;
-    filedLabelName?: string;
-    filedCodeName?: string;
+
+// 整个 actionSheetOption 的配置
+interface ActionSheetOptions<T> {
     list: T[];
+    modelValue?: string; // 默认值
+    filedLabelName?: string; // 要用哪个字段作为label
+    filedCodeName?: string; // 要用哪个字段作为code
 }
 
-const defaultOpt = {
-    title: '', // 标题，支持html
-    isShow: false, // 是否展示
-    modelValue: '', // 默认选中的值
-    filedLabelName: 'text', // 哪个字段作为展示文案
-    filedCodeName: 'code', // 哪个字段作为展示code
-    list: [] // 列表
-};
+class ActionSheet<T> {
+    private defaultOptions: ActionSheetOptions<T> = { list: [] }; // 默认配置
+    private options: ActionSheetOptions<T> = { list: [] }; // 和界面传递进来后合并一起的配置
+    private root = document.createElement('div'); // 容器
+    private container = document.querySelector('#pop-app'); // 要挂载的DOM
+    private app: App<Element> | null = null; // createApp的返回对象
+    private state: {isShow: boolean} = reactive({ isShow: false });
+    private choiceResoveFn: Function | null = null;
 
-let instance: MActionSheetComponent;
-function initInstance<T> () {
-    const Wrapper = defineComponent({
-        setup () {
-            const state = reactive({ isShow: true });
+    constructor (options: ActionSheetOptions<T>) {
+        this.initOptions(options);
+        this.createContainer();
+        this.resetState();
+        this.createApp();
+        this.mountApp();
+    }
 
-            const toggle = (show: boolean) => {
-                state.isShow = show;
-            };
-            let cb: (item: T) => void;
-            const open: OpenActionSheet = (props, callback) => {
-                Object.assign(state, props);
-                cb = callback;
-                nextTick(() => {
-                    toggle(true);
+    // 创建容器
+    private createContainer () {
+        this.container && this.container.appendChild(this.root);
+    }
+
+    private resetState () {
+        this.state = reactive({ ...this.options, isShow: false });
+    }
+
+    private createApp () {
+        const { state, toggle, choiceItem, animateAfterLeave } = this;
+        const Wrapper = defineComponent({
+            setup: () => {
+                return () => h(MActionSheet, {
+                    ...state,
+                    'onUpdate:isShow': toggle.bind(this),
+                    onAfterLeave: animateAfterLeave.bind(this),
+                    onChoose: choiceItem.bind(this)
                 });
-            };
-            const choose = (item: T) => {
-                cb(item);
-            };
-
-            const curInstance = getCurrentInstance();
-            if (curInstance) {
-                Object.assign(curInstance.proxy, { open });
             }
-            return () => h(MActionSheet, {
-                ...state,
-                'onUpdate:isShow': toggle,
-                onChoose: choose
-            });
-        }
-    });
+        });
+        this.app = createApp(Wrapper);
+    }
 
-    const app = createApp(Wrapper);
-    const root = document.createElement('div');
-    document.body.appendChild(root);
-    instance = app.mount(root) as MActionSheetComponent;
+    private mountApp () {
+        this.app && this.app.mount(this.root);
+    }
+
+    private initOptions (options: ActionSheetOptions<T>) {
+        this.options = Object.assign({}, this.defaultOptions, options);
+    }
+
+    // 切换actionSheet的isShow
+    private toggle (isShow: boolean) {
+        this.state.isShow = isShow;
+    }
+
+    // 消失的动画结束的钩子
+    private animateAfterLeave () {
+        this.app && this.app.unmount(this.root);
+        this.container && this.container.removeChild(this.root);
+        this.app = null;
+    }
+
+    private choiceItem (item: T) {
+        this.choiceResoveFn && this.choiceResoveFn(toRaw(item));
+    }
+
+    public show (): Promise<T> {
+        return new Promise(resolve => {
+            this.toggle(true);
+            this.choiceResoveFn = resolve;
+        });
+    }
 }
 
-export function useActionSheet<T> (listOrOptions: T[] | MactionSheetOptionType<T>): Promise<T> {
-    return new Promise(resolve => {
-        if (Array.isArray(listOrOptions)) {
-            listOrOptions = { list: listOrOptions };
-        }
-        if (!instance) {
-            initInstance<T>();
-        }
-
-        const options = Object.assign({}, defaultOpt, listOrOptions);
-        instance.open(options, resolve);
-    });
+// Promise的
+export function useActionSheet<T = DefListType> (options: ActionSheetOptions<T>): Promise<T> {
+    return new ActionSheet<T>(options).show();
 }
+
+// 响应式react的
+// export function useActionSheetReact <T = DefListType> (options: ActionSheetOptions<T>) {
+// }

@@ -1,10 +1,10 @@
-import { h, defineComponent } from 'vue';
-// import veiwPage from './viewPage.vue';
-import { RouteRecordRaw, RouterView } from 'vue-router';
+// import { h, defineComponent } from 'vue';
+import veiwPage from './viewPage.vue';
+import { RouteRecordRaw } from 'vue-router';
 
-const viewContainer = defineComponent({
-    render: () => h(RouterView)
-});
+// const viewContainer = defineComponent({
+//     render: () => h(RouterView)
+// });
 
 const routes: RouteRecordRaw[] = [
     {
@@ -33,7 +33,7 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/demo',
-        component: viewContainer,
+        component: veiwPage,
         children: [
             {
                 path: 'all',
@@ -79,7 +79,7 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/public',
-        component: viewContainer,
+        component: veiwPage,
         children: [
             {
                 path: 'choiceType',

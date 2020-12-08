@@ -7,6 +7,8 @@
         <m-button class="mt-10" @click="goPage('/demo/vant')">vant</m-button>
         <m-button class="mt-10" @click="goPage('/demo/loading')">loading</m-button>
         <m-button class="mt-10" @click="goPage('/demo/ajax')">axios请求</m-button>
+        <m-button class="mt-10" @click="goPage('/entrance/home')">返回首页</m-button>
+        <m-button class="mt-10" @click="goPage('/public/choiceType')">去其他二级页面</m-button>
     </m-layout>
 </template>
 

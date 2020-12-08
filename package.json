@@ -8,9 +8,9 @@
         "build": "vue-cli-service build",
         "jslint": "vue-cli-service lint",
         "csslint": "stylelint ./src/**/*.{html,vue,css,sass,scss} --fix",
-        "inspect": "vue-cli-service inspect --mode production >> inspect.js",
+        "inspect": "vue-cli-service inspect >> inspect.js",
         "analy": "vue-cli-service build --report",
-        "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
+        "dll": "webpack --progress --config ./webpack.dll.conf.js",
         "gulpsprite": "gulp sprite",
         "gulpfont": "gulp font",
         "mock": "nodemon mockServer/app.js"
@@ -35,6 +35,7 @@
         "@vue/compiler-sfc": "^3.0.0",
         "@vue/eslint-config-standard": "^5.1.2",
         "@vue/eslint-config-typescript": "^5.0.2",
+        "clean-webpack-plugin": "^3.0.0",
         "eslint": "^6.7.2",
         "eslint-plugin-import": "^2.20.2",
         "eslint-plugin-node": "^11.1.0",
@@ -54,6 +55,7 @@
         "stylelint-webpack-plugin": "^2.1.1",
         "ts-import-plugin": "^1.6.6",
         "typescript": "~3.9.3",
+        "webpack": "^4.44.2",
         "webpack-cli": "^4.2.0",
         "webpack-merge": "^5.4.0",
         "webpackbar": "^5.0.0-3"

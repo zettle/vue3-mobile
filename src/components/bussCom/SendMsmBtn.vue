@@ -26,7 +26,6 @@ export default defineComponent({
     setup (props, { emit }) {
         const defSecond = 6; // 默认倒计时总秒数
         const second = ref(defSecond);
-
         let timer = 0;
         const sendMsgEvent = () => {
             emit('send-msg');

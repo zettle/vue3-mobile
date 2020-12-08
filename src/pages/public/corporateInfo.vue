@@ -20,7 +20,9 @@
                     </div>
                 </div>
             </div>
-            <button class="choice-button">提交</button>
+             <div class="page-space">
+                <m-button class="mt-30">提交</m-button>
+            </div>
         </div>
     </m-layout>
 </template>
@@ -92,18 +94,6 @@ export default defineComponent({
                     margin-bottom: 10px;
                 }
             }
-        }
-
-        &-button {
-            display: block;
-            width: 90%;
-            margin: 0 auto;
-            margin-top: 50px;
-            color: $whiteColor;
-            line-height: 84px;
-            background: $backColor;
-            border: 0;
-            border-radius: 10px;
         }
     }
 </style>

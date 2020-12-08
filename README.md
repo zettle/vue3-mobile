@@ -138,6 +138,24 @@ https://v3.vuejs.org/guide/migration/filters.html
 
 过滤器被移除，推荐使用计算属性或者方法来实现
 
+使用方法来实现的话，会产生下面的问题
+```vue
+<m-form-seltip>{{sayHi(birth)}}</m-form-seltip>
+```
+而如果是普通的文本节点就不会这个问题
+```vue
+<div>{{sayHi(birth)}}</div>
+```
+
+如果像上面在自定义组件里面，就每次都会执行2次，并且如果相同节点有无相关的更新，也会触发
+```vue
+<m-form-seltip>{{iCount}}{{sayHi()}}</m-form-seltip>
+<div>{{iCount}}{{sayHi()}}</div>
+```
+像上面的iCount更新，也会触发函数
+
+
+
 
 # props自动推导
 props会自动推导，遇到复杂的类型时候，就推导不出

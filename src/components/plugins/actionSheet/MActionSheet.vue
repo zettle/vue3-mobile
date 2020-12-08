@@ -1,6 +1,6 @@
 <template>
     <teleport to="#pop-app">
-        <transition name="fade">
+        <transition name="fade" @after-leave="afterLeave">
             <div v-if="isShow" class="m-actionsheet-com">
                 <div class="m-mask" @click="close"></div>
                 <div class="m-actionsheet-container">
@@ -14,7 +14,7 @@
                             <li
                                 v-for="(item, $index) of list"
                                 :key="$index"
-                                class="action-sheet-item white-click-active"
+                                class="action-sheet-item clickable"
                                 @click="chooseItem(item)">
                                 {{item[filedLabelName]}}
                                 <i v-if="modelValue === item[filedCodeName]" class="iconfont-checked"></i>
@@ -39,11 +39,12 @@ export default defineComponent({
         title: { type: String, default: '' }, // 标题，支持html
         isShow: { type: Boolean, required: true }, // 是否展示
         modelValue: { type: [String, Number], default: '' }, // 默认选中的值
-        filedLabelName: { type: String, default: 'text' }, // // 哪个字段作为展示文案
-        filedCodeName: { type: String, default: 'code' }, // // 哪个字段作为展示code
+        filedLabelName: { type: String, default: 'text' }, // 哪个字段作为展示文案
+        filedCodeName: { type: String, default: 'code' }, // 哪个字段作为展示code
+        callback: { type: Function as PropType<(item: ItemType) => void>, default: undefined }, // 选择某一项后的回调
         list: { type: Array as PropType<ItemType[]>, default: () => [] }
     },
-    emits: ['update:isShow', 'update:modelValue', 'choose'],
+    emits: ['update:isShow', 'update:modelValue', 'choose', 'after-leave'],
     setup (props, { emit }) {
         const close = () => {
             emit('update:isShow', false);
@@ -52,10 +53,17 @@ export default defineComponent({
         const chooseItem = (item: ItemType) => {
             emit('update:modelValue', item[props.filedCodeName]);
             emit('choose', item);
+            if (typeof props.callback === 'function') {
+                props.callback(item);
+            }
             close();
         };
 
-        return { close, chooseItem };
+        const afterLeave = () => {
+            emit('after-leave');
+        };
+
+        return { close, chooseItem, afterLeave };
     }
 });
 </script>

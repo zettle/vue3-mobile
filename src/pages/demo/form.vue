@@ -2,11 +2,14 @@
     <m-layout>
         基本表单
         <m-form @submit="onSubmit">
-            <m-form-item label="联系人身份">
-                <m-form-seltip></m-form-seltip>
+            <m-form-item
+                class="clickable"
+                label="联系人身份"
+                @click="showContactActionSheet">
+                <m-form-seltip>{{contactName}}</m-form-seltip>
             </m-form-item>
-            <m-form-item label="出生日期" @click="showDatePicker">
-                <m-form-seltip>{{birthStr}}</m-form-seltip>
+            <m-form-item label="出生日期">
+                <m-form-seltip></m-form-seltip>
             </m-form-item>
             <m-form-item label="姓 名">
                 <input placeholder="请输入联系人姓名" type="text" />
@@ -26,7 +29,9 @@ import MForm from '@com/baseCom/MForm.vue';
 import MButton from '@com/baseCom/MButton.vue';
 import MFormItem from '@com/baseCom/MFormItem.vue';
 import MFormSeltip from '@com/baseCom/MFormSeltip.vue';
-import { tran2str } from '@hooks/useFilter';
+import { useActionSheet } from '@com/plugins/actionSheet';
+import { useMapDicState } from '@hooks/useFilter';
+
 export default defineComponent({
     components: { MForm, MButton, MFormItem, MFormSeltip },
     setup () {
@@ -34,12 +39,22 @@ export default defineComponent({
             console.log('onSubmit');
         };
 
-        const birth = ref(0);
-        const birthStr = tran2str(birth, 'Y-M-D h:m:s');
-        const showDatePicker = () => {
-            birth.value = new Date().valueOf();
+        // 联系人身份-actionSheet的code
+        const contactCode = ref('');
+        const list = [
+            { code: '001', text: '法人代表' },
+            { code: '002', text: '非法人代表' }
+        ];
+        const contactName = useMapDicState(contactCode, list);
+        const showContactActionSheet = async () => {
+            const item = await useActionSheet({
+                modelValue: contactCode.value,
+                list
+            });
+            contactCode.value = item.code;
         };
-        return { onSubmit, showDatePicker, birthStr };
+
+        return { contactName, onSubmit, showContactActionSheet };
     }
 });
 </script>

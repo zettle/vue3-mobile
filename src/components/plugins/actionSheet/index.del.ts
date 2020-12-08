@@ -46,9 +46,9 @@ function initInstance<T> () {
                 cb(item);
             };
 
-            const curInstance = getCurrentInstance();
-            if (curInstance) {
-                Object.assign(curInstance.proxy, { open });
+            const curInst = getCurrentInstance();
+            if (curInst) {
+                Object.assign(curInst.proxy, { open });
             }
             return () => h(MActionSheet, {
                 ...state,

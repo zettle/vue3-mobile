@@ -1,31 +1,20 @@
 <template>
-    <router-view v-slot="{ Component }">
-        <transition :name="transitionName">
-            <component :is="Component" class="page"></component>
-        </transition>
-    </router-view>
+    <div>
+        <router-view v-slot="{ Component }">
+            <transition :name="transitionName">
+                <component :is="Component" class="page"></component>
+            </transition>
+        </router-view>
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { defineComponent } from 'vue';
+import usePageAnimation from '@hooks/usePageAnimation';
 
 export default defineComponent({
     setup () {
-        const transitionName = ref('slide-right');
-        const route = useRoute();
-        const router = useRouter();
-
-        watch(() => route.path, () => {
-            const isForward = router.isForward;
-            // 第一次打开页面 goTO是undefined，如果阻止的话，可以让第一次打开不会出现动画
-            if (isForward === undefined) {
-                return;
-            }
-            // goTo=true表示前进-新页面从右划入，false表示后退，上个页面从左划入
-            transitionName.value = isForward ? 'slide-right' : 'slide-left';
-            router.isForward = false;
-        });
+        const { transitionName } = usePageAnimation();
         return { transitionName };
     }
 });
@@ -46,17 +35,19 @@ export default defineComponent({
 .slide-left-leave-active,
 .slide-right-enter-active,
 .slide-right-leave-active {
-    transition: transform 0.3s;
-    // transition: transform 10s;
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
 }
 
 .slide-left-enter-from,
-.slide-right-leave-active {
+.slide-right-leave-to {
     transform: translateX(-100%);
+    opacity: 0;
 }
 
-.slide-left-leave-active,
+.slide-left-leave-to,
 .slide-right-enter-from {
     transform: translateX(100%);
+    opacity: 0;
 }
 </style>

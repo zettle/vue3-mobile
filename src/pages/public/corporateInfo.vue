@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-             <div class="page-space">
+            <div class="page-space">
                 <m-button class="mt-30">提交</m-button>
             </div>
         </div>

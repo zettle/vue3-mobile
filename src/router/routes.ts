@@ -37,44 +37,50 @@ const routes: RouteRecordRaw[] = [
         children: [
             {
                 path: 'all',
-                component: () => import(/* webpackChunkName: 'demo-all' */'../pages/demo/all.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/all.vue'),
                 meta: { title: '各种测试' }
             },
             {
                 path: 'button',
-                component: () => import(/* webpackChunkName: 'demo-button' */'../pages/demo/button.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/button.vue'),
                 meta: { title: '按钮' }
             },
             {
                 path: 'vant',
-                component: () => import(/* webpackChunkName: 'demo-vant' */'../pages/demo/vant.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/vant.vue'),
                 meta: { title: 'vant组件' }
             },
             {
                 path: 'ajax',
-                component: () => import(/* webpackChunkName: 'demo-ajax' */'../pages/demo/ajax.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/ajax.vue'),
                 meta: { title: 'ajax请求' }
             },
             {
                 path: 'loading',
-                component: () => import(/* webpackChunkName: 'demo-loading' */'../pages/demo/loading.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/loading.vue'),
                 meta: { title: 'Loading' }
             },
             {
                 path: 'actionSheet',
-                component: () => import(/* webpackChunkName: 'demo-actionSheet' */'../pages/demo/actionSheet.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/actionSheet.vue'),
                 meta: { title: 'actionSheet' }
             },
             {
                 path: 'form',
-                component: () => import(/* webpackChunkName: 'demo-form' */'../pages/demo/form.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/form.vue'),
                 meta: { title: '表单' }
             },
             {
                 path: 'sendmsm',
-                component: () => import(/* webpackChunkName: 'demo-sendmsm' */'../pages/demo/sendmsm.vue'),
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/sendmsm.vue'),
                 meta: { title: '发送短信' }
+            },
+            {
+                path: 'region',
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/region.vue'),
+                meta: { title: '省市区' }
             }
+
         ]
     },
     {

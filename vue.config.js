@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const tsImportPluginFactory = require('ts-import-plugin');
-const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { merge } = require('webpack-merge');
@@ -45,8 +44,8 @@ const vueConfig = {
             .set('@store', resolve('src/store'));
 
         // 移除prefetch/preload插件
-        config.plugins.delete('prefetch-index');
-        config.plugins.delete('preload-index');
+        config.plugins.delete('prefetch');
+        config.plugins.delete('preload');
 
         // 引入scss全局变量
         const oneOfsMap = config.module.rule('scss').oneOfs.store;
@@ -84,12 +83,6 @@ const vueConfig = {
         config.plugins.push(new WebpackBar({
             name: 'process',
             color: '#07c160'
-        }));
-
-        // 配置dll减少编译时间，用了这个好像chrome的vue工具检测不到vue工程
-        config.plugins.push(new webpack.DllReferencePlugin({
-            context: process.cwd(),
-            manifest: require('./public/vendor/vendor-manifest.json')
         }));
 
         // style格式检查

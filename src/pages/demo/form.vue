@@ -8,11 +8,18 @@
                 @click="showContactActionSheet">
                 <m-form-seltip>{{contactName}}</m-form-seltip>
             </m-form-item>
-            <m-form-item label="出生日期">
-                <m-form-seltip></m-form-seltip>
-            </m-form-item>
-            <m-form-item label="姓 名">
+            <m-form-item label="姓名">
                 <input placeholder="请输入联系人姓名" type="text" />
+            </m-form-item>
+            <m-form-item label="手机">
+                <input
+                    maxlength="11"
+                    placeholder="请输入联系人电话"
+                    type="tel" />
+            </m-form-item>
+
+            <m-form-item class="mt-20" label="省市区">
+                <m-form-seltip></m-form-seltip>
             </m-form-item>
 
             <div class="flex page-space">

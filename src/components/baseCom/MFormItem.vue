@@ -9,10 +9,53 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
+// export interface RuleType {
+//     required?: boolean; // 是否必填
+//     message: string; // 校验不过的提示
+// }
+
 export default defineComponent({
     name: 'MFormItem',
     props: {
         label: { type: String, default: '' } // label标签
+        // mode: { type: [String, Number, Boolean], default: '' }, // 栏目数据
+        // rules: { type: Array as PropType<RuleType[]>, default: () => [] }
+    },
+    setup () {
+        // const formInject = useInjectFormItem();
+        // if (formInject) {
+        //     const { link, unlink } = formInject;
+        //     const instance = getCurrentInstance();
+        //     instance && link(instance);
+
+        //     onUnmounted(() => {
+        //         instance && unlink(instance);
+        //     });
+        // }
+
+        // const state = reactive({
+        //     focused: false,
+        //     validateFailed: false,
+        //     validateMessage: ''
+        // });
+
+        // 单挑规则的校验
+        // const validateSingleRule = (rules: RuleType[], i: number) => {
+        //     const rule = rules[i];
+        //     const mode = props.mode;
+        //     if (rule.required && mode === '') { // 校验项: 必填，校验不通过的情况
+        //         state.validateFailed = true;
+        //         state.validateMessage = rule.message;
+        //     }
+        // };
+
+        // const validate = () => {
+        //     console.log('child-form-item-validate');
+        //     const { rules } = props;
+        //     validateSingleRule(rules, 0);
+        // };
+        // return { validate }; // eslint-disable-line
     }
 });
 </script>

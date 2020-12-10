@@ -1,10 +1,5 @@
-// import { h, defineComponent } from 'vue';
 import veiwPage from './viewPage.vue';
 import { RouteRecordRaw } from 'vue-router';
-
-// const viewContainer = defineComponent({
-//     render: () => h(RouterView)
-// });
 
 const routes: RouteRecordRaw[] = [
     {
@@ -13,7 +8,7 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/:pathMatch(.*)', // 配置404
-        component: () => import(/* webpackChunkName: 'error-e404' */'../pages/error/notFound.vue')
+        component: () => import(/* webpackChunkName: 'error' */'../pages/error/notFound.vue')
     },
     {
         path: '/entrance',
@@ -79,8 +74,17 @@ const routes: RouteRecordRaw[] = [
                 path: 'region',
                 component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/region.vue'),
                 meta: { title: '省市区' }
+            },
+            {
+                path: 'date',
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/date.vue'),
+                meta: { title: '日期' }
+            },
+            {
+                path: 'valid',
+                component: () => import(/* webpackChunkName: 'demo' */'../pages/demo/valid.vue'),
+                meta: { title: '表单验证' }
             }
-
         ]
     },
     {

@@ -11,10 +11,11 @@ function resolve (dir) {
 }
 const vueConfig = {
     lintOnSave: true, // 使用vscode来处理，不用webpack处理，节省时间
-    publicPath: './', // 相对路径
+    publicPath: './', // 相对路径 history模式要设置为 '/'
     productionSourceMap: false, // 不生成map文件
     devServer: {
         host: '0.0.0.0',
+        // historyApiFallback: true, // history模式要设置为true
         proxy: {
             '/api': {
                 target: 'http://localhost:3000/api',

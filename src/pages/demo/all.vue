@@ -4,6 +4,8 @@
         <m-button class="mt-10" @click="goPage('/demo/sendmsm')">发送短信按钮</m-button>
         <m-button class="mt-10" @click="goPage('/demo/actionSheet')">actionSheet</m-button>
         <m-button class="mt-10" @click="goPage('/demo/region')">省市区选择器</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/date')">日期选择器</m-button>
+        <m-button class="mt-10" @click="goPage('/demo/valid')">表单验证</m-button>
         <m-button class="mt-10" @click="goPage('/demo/form')">表单</m-button>
         <m-button class="mt-10" @click="goPage('/demo/vant')">vant</m-button>
         <m-button class="mt-10" @click="goPage('/demo/loading')">loading</m-button>

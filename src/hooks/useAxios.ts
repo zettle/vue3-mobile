@@ -20,7 +20,7 @@ class Http {
     private openLoading () {
         this.timer && clearTimeout(this.timer);
         this.loadCounter++;
-        this.loading.open('加载数据中...');
+        this.loading.open('请求数据中...');
     }
 
     /**
@@ -67,8 +67,9 @@ class Http {
                 return Promise.reject(data);
             }
         }, (err: Error) => {
-            console.log(err);
+            console.log('请求异常', err);
             this.closeLoading(true);
+            return Promise.reject(err);
         });
     }
 

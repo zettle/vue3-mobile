@@ -1,7 +1,10 @@
 import { createApp, version } from 'vue';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import widget from '@/widget';
+
 // 全局组件的引入
 import MButton from './components/baseCom/MButton.vue';
 import MLayout from './components/baseCom/MLayout.vue';
@@ -12,6 +15,8 @@ import './assets/css/global.scss';
 import './assets/font/iconfont.css';
 
 console.log('vue版本', version);
+
+widget.init();
 
 // fontsize的设置
 (function () {
